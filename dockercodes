@@ -1,0 +1,13 @@
+docker run -d nginx
+docker images
+docker run -d -p 8080:80 nginx
+docker volume create myvolume
+docker volume create dvolume
+docker volume ls
+docker run -it -v myvolume:/data ubuntu bash
+cd data
+echo "Docker Volume Persistence Test" > test.txt
+exit
+docker run -it -v myvolume:/data ubuntu bash
+cat /data/test.txt
+exit
