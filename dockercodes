@@ -1,3 +1,33 @@
+docker pull nginx
+# Downloads NGINX web server image from Docker Hub
+docker run -d -p 8080:80 nginx
+# Runs NGINX container in background and maps port 8080 to 80
+docker ps
+# Shows running containers
+docker volume create my-volume
+# Creates a Docker volume for persistent storage
+docker volume ls
+# Lists all Docker volumes
+docker run -d -p 8081:80 -v my-volume:/usr/share/nginx/html nginx
+# Runs NGINX container with volume mounted for persistence
+docker inspect <container_id>
+# Shows detailed container information including mounts
+docker exec -it <container_id> bash
+# Opens shell inside running container
+echo "Hello Persistent Storage!" > /usr/share/nginx/html/index.html
+# Creates a file inside container
+docker stop <container_id>
+# Stops the container
+docker rm <container_id>
+# Removes the container
+docker run -d -p 8081:80 -v my-volume:/usr/share/nginx/html nginx
+# Re-runs container using same volume to retain data
+
+
+
+
+
+
 docker run -d nginx
 docker images
 docker run -d -p 8080:80 nginx
@@ -11,3 +41,16 @@ exit
 docker run -it -v myvolume:/data ubuntu bash
 cat /data/test.txt
 exit
+
+
+
+
+
+
+
+
+
+
+
+
+
